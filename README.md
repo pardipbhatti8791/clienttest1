@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -16,21 +14,42 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## implemenations
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Tanstack Query for api calls
+- Tailwind & ShadCN UI
+- Dark Mode implementation
+- Pagination Implemenation
+- edit modal implementation on product details page
 
-## Learn More
+## Folder and Files structure
 
-To learn more about Next.js, take a look at the following resources:
+- app
+  - (root)
+    -  page.tsx
+    -  [id]
+    -  __components (related components of product listing page)
+  - layout.tsx
+- components
+  -  ui
+    - button.tsx
+    - dialog.tsx
+    - dropdown-menu.tsx
+    - form.tsx
+    - input.tsx
+    - lable.tsx
+    - skeleton.tsx
+  -  theme-provider.tsx
+  -  theme-switcher.tsx
+- hoc
+  -  TanStackProvider.tsx
+- lib
+    - utils.ts
+- public
+- services
+  -  base-service.ts
+  -  product-service.ts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Other information of implementation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+All apis end points handled properly with interfaces and types, created base service and product service to handle api calls, then intergrated tanstack query inside components with product service. also used shadcn ui for forms submission, dialog and theme switcher. I have tested app multiple time. added pagination on product list page and skeleton loading on both products and product detail page.
