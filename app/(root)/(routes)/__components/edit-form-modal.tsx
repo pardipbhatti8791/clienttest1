@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -24,6 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import productService, { Product } from "@/services/product-service";
 import { useState } from "react";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 interface IEditModalProps {
   id: number
@@ -37,7 +37,6 @@ interface IMutationData {
     title: string
   }
 }
-
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -70,10 +69,8 @@ export const EditFormModal: React.FC<IEditModalProps> = ({ title, id, refetch })
   }
 
   return (
-    <Dialog open={isOpen}>
-      <DialogTrigger asChild>
+    <Dialog open={isOpen} onOpenChange={(value) => setOpenModal(value)}>
         <Button variant="outline" onClick={() => setOpenModal(true)}>Edit</Button>
-      </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
 
         <Form {...form}>
